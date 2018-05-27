@@ -12,7 +12,7 @@ Docker上で動作するPython（django）アプリ開発環境のサンプル�
 
 1. Dockerfile
 
-    ```
+    ``` dockerfile
     FROM python:3
     ENV PYTHONUNBUFFERED 1
     RUN mkdir /code
@@ -24,14 +24,14 @@ Docker上で動作するPython（django）アプリ開発環境のサンプル�
 
 2. requirements.txt
 
-    ```
+    ``` text
     Django>=1.8,<2.0
     psycopg2
     ```
 
 3. docker-compose.yml
 
-    ```
+    ``` yaml
     version: '3'
     
     services:
@@ -58,13 +58,13 @@ Docker上で動作するPython（django）アプリ開発環境のサンプル�
 
     プロジェクトフォルダ上で以下のコマンドを実行すると、PythonとPostgreSQLのコンテナが起動する。
     
-    ``` bash
+    ``` shell
     sudo docker-compose run web django-admin.py startproject mysite
     ```
     
     Linuxの場合、コンテナ内のdjangoが自動生成したファイルの所有者がrootユーザーとなるため、そのままでは編集できない。以下のコマンドで所有権を自分に付け替える。(以降、自動生成の都度所有権の付け替えが必要。。。ちょっと面倒)
     
-    ```
+    ``` shell
     sudo chown -R $USER:$USER .
     ```
 
@@ -72,7 +72,7 @@ Docker上で動作するPython（django）アプリ開発環境のサンプル�
  
     `DATABASE` を、PostgreSQLコンテナへの接続設定に書き換える。
     
-    ``` Python
+    ``` python
     # Database
     # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
     DATABASES = {
@@ -88,11 +88,11 @@ Docker上で動作するPython（django）アプリ開発環境のサンプル�
     
     言語とタイムゾーンの設定を行う。
     
-    ```
+    ``` python
     LANGUAGE_CODE = 'ja-jp'
     ```
     
-    ```
+    ``` python
     TIME_ZONE = 'Asia/Tokyo'
     ```
 
@@ -100,7 +100,7 @@ Docker上で動作するPython（django）アプリ開発環境のサンプル�
 
     以下のコマンドでコンテナを起動する。
     
-    ```
+    ``` shell
     docker-compose up
     ```
     `http://localhost:8000` で、起動を確認できる。
