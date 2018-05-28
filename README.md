@@ -25,7 +25,7 @@ Docker上で動作するPython（django）アプリ開発環境のサンプル�
 2. requirements.txt
 
     ``` text
-    Django>=1.8,<2.0
+    Django>=2.0,<3.0
     psycopg2
     ```
 
