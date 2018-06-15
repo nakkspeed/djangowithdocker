@@ -90,7 +90,7 @@ Docker上で動作するPython（django）アプリ開発環境のサンプル�
     プロジェクトフォルダ上で以下のコマンドを実行すると、PythonとPostgreSQLのコンテナが起動する。
     
     ``` shell
-    sudo docker-compose run web django-admin.py startproject mysite
+    sudo docker-compose run web django-admin.py startproject mysite .
     ```
     
     Linuxの場合、コンテナ内のdjangoが自動生成したファイルの所有者がrootユーザーとなるため、そのままでは編集できない。以下のコマンドで所有権を自分に付け替える。(以降、自動生成の都度所有権の付け替えが必要。。。ちょっと面倒)
